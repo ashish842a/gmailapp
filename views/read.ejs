@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Message</title>
+    <link rel="stylesheet" href="/public/stylesheets/profile.css">
+</head>
+<body>
+   <!-- mail aaya section -->
+   <div class="mailsaaya">
+    <% ruser.reverse().forEach(function(elem){ %>
+     <div class="txt">
+      <span id="bold"> Name : <%=elem.userId.name%></span >
+       <br>
+       Email : <%=elem.recieveMail %>
+       <br>
+       Message : <%=elem.mailtext %>
+       <br> 
+    </div>
+    <a id="read" href="/profile">Back to profile</a>
+
+    <% })%>
+   </div>
+</body>
+</html>

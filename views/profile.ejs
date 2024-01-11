@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserData</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="image">
+        <img id="imgbtn" src="./images/uploads/<%=user.profilePic%>" alt="a">
+    </div>
+    <form id="form" action="/photo" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+          <input id="filebtn" type="file" class="form-control-file" name="image">
+         
+          <input id="submit" type="submit" value="Set image" class="btn btn-default">            
+        </div>
+      </form>
+    <div class="container">
+        <div class="card">
+          <div class="box">
+            <div class="content">
+              
+              <h3 id="name">Hey, <%=user.name %></h3>
+              <p>Welcome back to mailservice</p>
+              <a id="logout" href="/logout">Log me Out</a>
+             
+              <a href="#" id="createbtn">Send New Mail</a>
+              <a href="/receive" id="createbtn">Check receive mail</a>
+              <a href="/sentmail" id="createbtn">Check Send mail</a>
+              <hr>
+            </div>
+        </div>
+        <!-- <a id="delete" href="/delete/<%=user._id%>">Delete account</a> -->
+        </div>
+      
+      </div> 
+
+      <!-- compose box -->
+      <div class="composeMail">
+
+          <i id="close" class="ri-close-fill"></i>
+
+         <div class="compose-box">
+            <h2>Sending To:</h2>
+            <form action="/compose" method="post">
+                <input type="text" name="recieveMail" placeholder="To Recipient">
+                <textarea name="mailtext" placeholder="Write your mail"> </textarea>
+                <button class="btn-send">Send</button>
+              </form>
+         </div>
+        </div>
+        
+        
+        <!-- javascript code -->
+        <script>
+            const createbtn = document.querySelector("#createbtn")
+            const close = document.querySelector("#close")
+            const composebox =document.querySelector(".compose-box")
+        createbtn.addEventListener("click",function(){
+            document.querySelector(".composeMail").style.display="block";
+             close.style.display="flex"
+            composebox.style.display="block"
+        // console.log("hogya");
+})
+
+// close close code
+
+const composeMail = document.querySelector(".composeMail")
+close.addEventListener("click",function(){
+    document.querySelector(".composeMail").style.display="none";
+
+    // composeMail.style.display="block"
+    compose.style.display="none"
+    composebox.style.display="none"
+})
+
+// form js
+
+document.querySelector("#imgbtn").addEventListener("click",function(){
+   document.querySelector("#filebtn").click()
+})
+
+document.querySelector("#filebtn").addEventListener("change",function(){
+    document.querySelector("#submit").click()
+})
+
+document.querySelector("#form").style.display="none";
+
+createbtn.addEventListener("click",function(){
+  axios.get("/check")
+  .then(function(data){
+    console.log(data.data);
+  })
+})
+      </script>
+</body>
+</html>

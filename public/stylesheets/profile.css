@@ -1,0 +1,173 @@
+body {
+    margin: 0px;
+    padding: 10px 20px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  body::-webkit-scrollbar{
+    display: none;
+  }
+  
+  a {
+    color: #00B7FF;
+  }
+h3{
+    font-size: 30px;
+}
+  .composeMail{
+    padding: 10px;
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+    /* transform: translate(-50%,-50%); */
+    width: 400px;
+    height: 400px;
+    background-color: teal;
+    transition: 0.5s;
+    display: none;
+  }
+  #close{
+    width: fit-content;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #close:hover{
+    background-color: red;
+
+  }
+  input{
+    width: 100%;
+    margin: 10px 0;
+    display: block;
+  }
+  textarea{
+    width: 100%;
+    margin: 10px 0;
+    display: block;
+    height: 200px;
+    resize: none;
+    /* transition: 1s; */
+  }
+  
+ .compose-box{
+    display: block;
+    /* background-color: red; */
+    margin: 0 20px;
+ }
+
+button{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    width: 80px;
+    height: 30px;
+    outline: none;
+    background: transparent;
+    border: none;
+    background-color: #0984e3;
+}
+button:hover{
+    background-color: #ff7675;
+}
+.image{
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: red;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.content>p{
+  font-weight: 700;
+  font-style: bold;
+  font-size: 20px;
+}
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.mailsaaya{
+  position: relative;
+  width: 100%;
+  height: 400px;
+  /* background-color: red; */
+
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.txt{
+  margin-top: 10px;
+  /* position: absolute; */
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%); */
+  width: 100%;
+  height: fit-content;
+  /* height: 60px; */
+  padding: 10px 0;
+  /* background-color: teal; */
+  background-color: #ecf0f1;
+  padding: 10px 10px;
+}
+#bold{
+  font-size: 20px;
+  font-style: bold;
+  font-weight: 700;
+}
+
+#read{
+  text-decoration: none;
+  margin-top: 10px;
+  width: fit-content;
+  background-color: #ff7675;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  color: #fff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+#logout{
+  color: #fff;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  text-decoration: none;
+  width: fit-content;
+  background-color: #ff7675;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+#createbtn{
+  color: #fff;
+  /* position: absolute; */
+  top: 5%;
+  /* right: 5%; */
+  text-decoration: none;
+  width: fit-content;
+  background-color: #ff7675;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  margin-bottom: 10px;
+}
+#name{
+  position: absolute;
+  top: 0%;
+  left: 8%;
+}

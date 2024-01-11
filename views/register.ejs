@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <!-- <link href="css/style.css" type="text/css" rel="stylesheet"> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- Body of Form starts -->
+  	<div class="container">
+		<h5 id="already">username is already taken</h5>
+      <form method="post" autocomplete="on" action="/register">
+        
+    		<div class="box">
+          <label for="firstName" class="fl fontLabel"> First Name: </label>
+    			<div class="new iconBox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+    			<div class="fr">
+    					<input type="text" name="name" placeholder="name"
+              class="textBox" autofocus="on" required>
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--First name-->
+
+
+        <!--Second name-->
+    		<div class="box">
+          <label for="secondName" class="fl fontLabel"> User Name: </label>
+    			<div class="fl iconBox"><i class="fa fa-user" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input id="username" type="text" required name="username"
+              placeholder="Username" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Second name-->
+
+
+    		<!---Phone No.------>
+    		<div class="box">
+          <label for="phone" class="fl fontLabel"> Phone No.: </label>
+    			<div class="fl iconBox"><i class="fa fa-phone-square" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" required name="phone" maxlength="10" placeholder="Phone No." class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---Phone No.---->
+
+
+    		<!---Email ID---->
+    		<div class="box">
+          <label for="email" class="fl fontLabel"> Email ID: </label>
+    			<div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="email" required name="email" placeholder="Email Id" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Email ID----->
+
+
+    		<!---Password------>
+    		<div class="box">
+          <label for="password" class="fl fontLabel"> Password </label>
+    			<div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="Password" required name="password" placeholder="Password" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---Password---->
+
+    		<!---Gender----->
+    		<div class="box radio">
+          <label for="gender" class="fl fontLabel"> Gender: </label>
+    				<input type="radio" name="Gender" value="Male" required> Male &nbsp; &nbsp; &nbsp; &nbsp;
+    				<input type="radio" name="Gender" value="Female" required> Female
+    		</div>
+    		<!---Gender--->
+
+
+    		<!--Terms and Conditions------>
+    		<div class="box terms">
+    				<input type="checkbox" name="Terms" required> &nbsp; I accept the terms and conditions
+    		</div>
+    		<!--Terms and Conditions------>
+
+
+
+    		<!---Submit Button------>
+    		<div class="box" style="background: #2d3e3f">
+    				<input type="Submit" name="Submit" class="submit" value="SUBMIT">
+                    <a id="have" href="/login">Already have a account</a>
+    		</div>
+    		<!---Submit Button----->
+      </form>
+  </div>
+  <!--Body of Form ends--->
+
+  <!-- script -->
+
+  <script>
+	let timeout;
+	var dat="";
+	document.querySelector("#username").addEventListener("input",function(dets){
+		
+		clearInterval(timeout);
+		// console.log(timeout);
+		dat+=dets.data;
+		timeout = setInterval(function(){
+		
+		axios.get(`/check/${dat}`)
+		.then(function(data){
+	
+			if(data.data.userData){
+				document.querySelector("#username").style.border="3px solid red"
+				document.querySelector("#already").style.display="flex";
+
+			}
+			else{
+				document.querySelector("#username").style.border="initial"
+				document.querySelector("#already").style.display="none";
+			}
+		})
+		},1000)
+	})
+
+  </script>
+  </body>
+</html>
